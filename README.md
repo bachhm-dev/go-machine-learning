@@ -23,5 +23,3 @@ Time series analysis is a statistical technique used to analyze and forecast dat
 
 ## Anomaly Detection
 Anomaly detection is a technique used to identify unusual or abnormal data points that deviate from the expected patterns. It is widely used in fraud detection, network security, and system monitoring.
-
-This README aims to provide a brief overview of these machine learning techniques and their applications. For more detailed information and implementation examples, please refer to the respective sections in the documentation.
