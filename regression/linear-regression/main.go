@@ -45,6 +45,10 @@ import (
 // then calculate one of the evaluation metrics. In this case, we will use the mean
 // absolute error (MAE) to evaluate our model.
 
+const dataset = "../dataset/Advertising.csv"
+const trainingDataSet = "../dataset/training.csv"
+const testDataSet = "../dataset/test.csv"
+
 func main() {
 	dataProfiling()
 	chooseIndependentVariable()
@@ -56,7 +60,7 @@ func main() {
 
 func dataProfiling() {
 	// Open the CSV file.
-	advertFile, err := os.Open("Advertising.csv")
+	advertFile, err := os.Open(dataset)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -99,7 +103,7 @@ func dataProfiling() {
 
 func chooseIndependentVariable() {
 	// Open the advertising dataset file.
-	f, err := os.Open("Advertising.csv")
+	f, err := os.Open(dataset)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -137,7 +141,7 @@ func chooseIndependentVariable() {
 
 func splitData() {
 	// Open the advertising dataset file.
-	f, err := os.Open("Advertising.csv")
+	f, err := os.Open(dataset)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -172,7 +176,7 @@ func splitData() {
 		1: testDF,
 	}
 	// Create the respective files.
-	for idx, setName := range []string{"training.csv", "test.csv"} {
+	for idx, setName := range []string{trainingDataSet, testDataSet} {
 		// Save the filtered dataset file.
 		f, err := os.Create(setName)
 		if err != nil {
@@ -189,7 +193,7 @@ func splitData() {
 
 func train() regression.Regression {
 	// Open the training dataset file.
-	f, err := os.Open("training.csv")
+	f, err := os.Open(trainingDataSet)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -236,7 +240,7 @@ func train() regression.Regression {
 
 func test(r regression.Regression) {
 	// Open the test dataset file.
-	f, err := os.Open("test.csv")
+	f, err := os.Open(testDataSet)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -282,7 +286,7 @@ func test(r regression.Regression) {
 func visualizeRegression(r regression.Regression) {
 	// Output the trained model parameters.
 	// Open the advertising dataset file.
-	f, err := os.Open("Advertising.csv")
+	f, err := os.Open(dataset)
 	if err != nil {
 		log.Fatal(err)
 	}

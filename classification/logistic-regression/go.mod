@@ -1,4 +1,4 @@
-module github.com/bachhm.dev/go-machine-learning/linear-regression
+module github.com/bachhm.dev/go-machine-learning
 
 go 1.22.3
 
