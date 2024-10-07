@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// Read in the iris data set into golearn "instances".
-	irisData, err := base.ParseCSVToInstances("iris.csv", true)
+	irisData, err := base.ParseCSVToInstances("../dataset/iris.csv", true)
 	if err != nil {
 		log.Fatal(err)
 	}
