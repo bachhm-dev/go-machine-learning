@@ -54,7 +54,7 @@ func main() {
 
 func dataProfiling() {
 	// Open the loan dataset file.
-	f, err := os.Open("loan_data.csv")
+	f, err := os.Open("../dataset/loan_data.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -68,7 +68,7 @@ func dataProfiling() {
 		log.Fatal(err)
 	}
 	// Create the output file.
-	f, err = os.Create("clean_loan_data.csv")
+	f, err = os.Create("../dataset/clean_loan_data.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -121,7 +121,7 @@ func dataProfiling() {
 
 func savePlotPng() {
 	// Open the CSV file.
-	loanDataFile, err := os.Open("clean_loan_data.csv")
+	loanDataFile, err := os.Open("../dataset/clean_loan_data.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -161,7 +161,7 @@ func savePlotPng() {
 
 func splitData() {
 	// Open the clean loan dataset file.
-	f, err := os.Open("clean_loan_data.csv")
+	f, err := os.Open("../dataset/clean_loan_data.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -196,7 +196,7 @@ func splitData() {
 		1: testDF,
 	}
 	// Create the respective files.
-	for idx, setName := range []string{"training.csv", "test.csv"} {
+	for idx, setName := range []string{"../dataset/training.csv", "test.csv"} {
 		// Save the filtered dataset file.
 		f, err := os.Create(setName)
 		if err != nil {
@@ -213,7 +213,7 @@ func splitData() {
 
 func train() {
 	// Open the training dataset file.
-	f, err := os.Open("training.csv")
+	f, err := os.Open("../dataset/training.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -317,7 +317,7 @@ func predict(score float64) float64 {
 
 func test() {
 	// Open the test examples.
-	f, err := os.Open("test.csv")
+	f, err := os.Open("../dataset/test.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
